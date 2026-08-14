@@ -8,7 +8,7 @@ def split_nodes_delimiter(
 ) -> list[TextNode]:
     if delimiter == "":
         raise ValueError("no delimeter set")
-    new_nodes = []
+    new_nodes: list[TextNode] = []
     for old_node in old_nodes:
         parts = old_node.text.split(delimiter)
         if len(parts) % 2 == 0:
@@ -33,7 +33,7 @@ def extract_markdown_links(text: str) -> list[tuple[str, str]]:
     return re.findall(r"(?<!!)\[([^\[\]\n]*)\]\(([^\(\)\n]*)\)", text)
 
 def split_nodes_image(old_nodes: list[TextNode]) -> list[TextNode]:
-    new_nodes = []
+    new_nodes: list[TextNode] = []
     for old_node in old_nodes:
         text = old_node.text
         images = extract_markdown_images(text)
@@ -47,7 +47,7 @@ def split_nodes_image(old_nodes: list[TextNode]) -> list[TextNode]:
     return new_nodes
 
 def split_nodes_link(old_nodes: list[TextNode]) -> list[TextNode]:
-    new_nodes = []
+    new_nodes: list[TextNode] = []
     for old_node in old_nodes:
         text = old_node.text
         links = extract_markdown_links(text)

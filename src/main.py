@@ -1,15 +1,8 @@
-from htmlnode import HTMLNode
-from textnode import TextNode, TextType
+from copy_static_to_public import copy_static_to_public
 
 
 def main():
-    dummy = TextNode("dummy", TextType.LINK, "https/dummy.com")
-    print(dummy)
-    htmlnode = HTMLNode(tag = "taggy", value = "42", props = {
-        "href": "https://www.google.com",
-        "target": "_blank",
-    })
-    print(htmlnode)
+    print(copy_static_to_public())
 
 
 main()
