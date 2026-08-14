@@ -157,9 +157,9 @@ who cares you just need to know this is a quote.
 
     def test_ordered_list(self):
         text = """
-1.thing1
-2.thing2
-3.thing3
+1. thing1
+2. thing2
+3. thing3
         """
         actual = block_to_block_type(markdown_to_blocks(text)[0])
         expected = BlockType.ORDERED_LIST
@@ -167,9 +167,9 @@ who cares you just need to know this is a quote.
 
     def test_ordered_list_wrong_numbers(self):
         text = """
-2.thing1
-1.thing2
-3.thing3
+2. thing1
+1. thing2
+3. thing3
         """
         actual = block_to_block_type(markdown_to_blocks(text)[0])
         expected = BlockType.PARAGRAPH

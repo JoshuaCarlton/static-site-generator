@@ -36,7 +36,11 @@ def block_to_block_type(markdown: str) -> BlockType:
     ordered = True
     for i in range(len(lines)):
         line = lines[i]
-        if line[0] != str(i + 1) or line[1] != ".":
+        number = re.findall(r"(?<!.)(\d*)\. ", line)
+        if not number:
+            ordered = False
+            break
+        if number[0] != str(i + 1):
             ordered = False
             break
     if ordered:
