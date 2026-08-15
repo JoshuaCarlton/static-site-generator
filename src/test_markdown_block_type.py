@@ -222,3 +222,13 @@ also normal paragraph
             BlockType.PARAGRAPH
         ]
         self.assertEqual(actual, expected)
+
+    def test_quote_tolkien(self):
+        text = """
+> "I am in fact a Hobbit in all but size."
+>
+> -- J.R.R. Tolkien
+        """
+        actual = block_to_block_type(markdown_to_blocks(text)[0])
+        expected = BlockType.QUOTE
+        self.assertEqual(actual, expected)

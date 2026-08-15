@@ -21,7 +21,7 @@ def block_to_block_type(markdown: str) -> BlockType:
     lines = markdown.split("\n")
     quote = True
     for line in lines:
-        if not re.findall(r"(?<!.)>.", line):
+        if not re.findall(r"(?<!.)>", line):
             quote = False
             break
     if quote:

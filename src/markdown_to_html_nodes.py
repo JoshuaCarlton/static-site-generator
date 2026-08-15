@@ -32,7 +32,9 @@ def create_parent_node(block: str, block_type: BlockType) -> ParentNode:
             old_lines = block.split("\n")
             new_lines = []
             for old_line in old_lines:
-                if old_line[1] == " ":
+                if len(old_line) == 1:
+                    new_line = ""
+                elif old_line[1] == " ":
                     new_line = old_line[2:]
                 else:
                     new_line = old_line[1:]
