@@ -7,9 +7,6 @@ from generate_page import generate_page
 def copy_content_to_public()-> list[str]:
     abs_content = os.path.abspath("content")
     abs_public = os.path.abspath("public")
-    if os.path.exists(abs_public):
-        shutil.rmtree(abs_public)
-    os.mkdir(abs_public)
     return copy_from_to(abs_content, abs_public)
 
 def copy_from_to(from_file: str, to_file: str)-> list[str]:
